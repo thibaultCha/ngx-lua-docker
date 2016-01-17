@@ -1,0 +1,21 @@
+mysql:
+  image: mysql
+  container_name: ngx-lua-mysql
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ALLOW_EMPTY_PASSWORD="yes"
+  volumes:
+    - .:/docker-entrypoint-initdb.d
+
+redis:
+  image: redis
+  container_name: ngx-lua-redis
+  ports:
+    - "6379:6379"
+
+memcached:
+  image: memcached
+  container_name: ngx-lua-memcached
+  ports:
+    - "11211:11211"
